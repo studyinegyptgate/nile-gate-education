@@ -16727,24 +16727,22 @@ const universities = [
       [e.target.name]: e.target.value,
     });
   };
+  console.log(studentData);
 
-  const sendStudentData = () => {
-    const message =
-      "مرحبا Nile Gate Education، أريد التقديم للدراسة في مصر" +
-      "\nالاسم: " +
-      studentData.name +
-      "\nالجنسية: " +
-      studentData.nationality +
-      "\nالمجموع: " +
-      studentData.grade +
-      "\nالتخصص المطلوب: " +
-      studentData.major +
-      "\nالمقال: " +
-      (selectedArticle ? selectedArticle.title : "");
+ const sendStudentData = () => {
+  const message = `
+أريد التقديم للدراسة في مصر مع Nile Gate Education
 
-    window.location.href = WHATSAPP_URL + "?text=" + encodeURIComponent(message);
-  };
+الاسم: ${studentData.name || ""}
+الجنسية: ${studentData.nationality || ""}
+المجموع / المعدل: ${studentData.grade || ""}
+التخصص المطلوب: ${studentData.major || ""}
+المقال: ${selectedArticle ? selectedArticle.title : ""}
+`;
 
+  window.location.href =
+    WHATSAPP_URL + "?text=" + encodeURIComponent(message);
+};
  return (
   <>
     <Helmet>
