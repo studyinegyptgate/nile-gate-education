@@ -16739,7 +16739,9 @@ const universities = [
 التخصص المطلوب: ${studentData.major || ""}
 المقال: ${selectedArticle ? selectedArticle.title : ""}
 `;
-
+window.gtag?.("event", "conversion", {
+  send_to: "AW-18199148265/KwprCJjs5rYcEOntg-ZD",
+});
   window.location.href =
     WHATSAPP_URL + "?text=" + encodeURIComponent(message);
 };
