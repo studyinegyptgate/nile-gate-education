@@ -30,6 +30,7 @@ const seoDescription = article
   major: "",
 });
 
+
 const handleInputChange = (e) => {
   setStudentData({
     ...studentData,
@@ -100,29 +101,44 @@ const handleInputChange = (e) => {
 
 
 <input
- type="text"
- placeholder="الاسم" 
- />
+  name="name"
+  value={studentData.name}
+  onChange={handleInputChange}
+  type="text"
+  placeholder="الاسم"
+/>
 
-  <input
-    type="text"
-    placeholder="رقم الواتساب"
-  />
+<input
+  name="phone"
+  value={studentData.phone}
+  onChange={handleInputChange}
+  type="text"
+  placeholder="رقم الواتساب"
+/>
 
-  <input
-    type="text"
-    placeholder="الجنسية"
-  />
+<input
+  name="nationality"
+  value={studentData.nationality}
+  onChange={handleInputChange}
+  type="text"
+  placeholder="الجنسية"
+/>
 
-  <input
-    type="text"
-    placeholder="المؤهل الدراسي"
-  />
+<input
+  name="qualification"
+  value={studentData.qualification}
+  onChange={handleInputChange}
+  type="text"
+  placeholder="المؤهل الدراسي"
+/>
 
-  <input
-    type="text"
-    placeholder="التخصص المطلوب"
-  />
+<input
+  name="major"
+  value={studentData.major}
+  onChange={handleInputChange}
+  type="text"
+  placeholder="التخصص المطلوب"
+/>
 
  <button
   onClick={() => {

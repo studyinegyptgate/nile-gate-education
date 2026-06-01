@@ -22,7 +22,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
 const location = useLocation();
-const articlesPerPage = 3;
+const articlesPerPage = 4;
 
   const [studentData, setStudentData] = useState({
     name: "",
@@ -16721,29 +16721,44 @@ const universities = [
     },
   ];
 
-  const handleInputChange = (e) => {
-    setStudentData({
-      ...studentData,
-      [e.target.name]: e.target.value,
-    });
-  };
+
+   const handleInputChange = (e) => {
+  const { name, value } = e.target;
+
+  setStudentData((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+};
+ 
   console.log(studentData);
 
- const sendStudentData = () => {
+
+const sendStudentData = () => {
+  const inputs = document.querySelectorAll(".article-form input");
+
+  const name = inputs[0]?.value || "";
+  const phone = inputs[1]?.value || "";
+  const nationality = inputs[2]?.value || "";
+  const qualification = inputs[3]?.value || "";
+  const major = inputs[4]?.value || "";
+
   const message = `
 أريد التقديم للدراسة في مصر مع Nile Gate Education
 
-الاسم: ${studentData.name || ""}
-الجنسية: ${studentData.nationality || ""}
-المجموع / المعدل: ${studentData.grade || ""}
-التخصص المطلوب: ${studentData.major || ""}
-المقال: ${selectedArticle ? selectedArticle.title : ""}
+الاسم: ${name}
+رقم الواتساب: ${phone}
+الجنسية: ${nationality}
+المؤهل الدراسي: ${qualification}
+التخصص المطلوب: ${major}
 `;
-window.gtag?.("event", "conversion", {
-  send_to: "AW-18199148265/KwprCJjs5rYcEOntg-ZD",
-});
+
+  window.gtag?.("event", "conversion", {
+    send_to: "AW-18199148265/KwprCJjs5rYcEOntg-ZD",
+  });
+
   window.location.href =
-    WHATSAPP_URL + "?text=" + encodeURIComponent(message);
+    "https://wa.me/201026555914?text=" + encodeURIComponent(message);
 };
  return (
   <>
@@ -17017,12 +17032,13 @@ window.gtag?.("event", "conversion", {
             <div className="article-form">
               <h3>{language === "ar" ? "سجل بياناتك للتواصل معك" : "Register Your Information"}</h3>
 
-              <input name="name" type="text" placeholder={language === "ar" ? "اسم الطالب" : "Student Name"} value={studentData.name} onChange={handleInputChange} />
-              <input name="nationality" type="text" placeholder={language === "ar" ? "الجنسية" : "Nationality"} value={studentData.nationality} onChange={handleInputChange} />
-              <input name="grade" type="text" placeholder={language === "ar" ? "المجموع" : "Grade"} value={studentData.grade} onChange={handleInputChange} />
-              <input name="major" type="text" placeholder={language === "ar" ? "التخصص المطلوب" : "Desired Major"} value={studentData.major} onChange={handleInputChange} />
+             <input id="leadName" type="text" placeholder="الاسم" />
+<input id="leadPhone" type="text" placeholder="رقم الواتساب" />
+<input id="leadNationality" type="text" placeholder="الجنسية" />
+<input id="leadQualification" type="text" placeholder="المؤهل الدراسي" />
+<input id="leadMajor" type="text" placeholder="التخصص المطلوب" />
+  <button className="main-btn" onClick={(e) => sendStudentData(e)}>
 
-              <button className="main-btn" onClick={sendStudentData}>
                 {language === "ar" ? "إرسال البيانات عبر واتساب" : "Send via WhatsApp"}
               </button>
             </div>
