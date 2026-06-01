@@ -5928,7 +5928,7 @@ title:
       : "Egyptian universities application website for international students 2026.",
 
  image:
-"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+"https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
 
   content: ` 
 
