@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nile-gate-education.vercel.app/sitemap.xml
+Sitemap: https://www.nilegateeducation.com/sitemap.xml
